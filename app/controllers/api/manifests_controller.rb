@@ -1,6 +1,8 @@
 class Api::ManifestsController < Api::ApplicationController
   def update
     @user = User.find_by_nickname(params[:user])
+    raise ActiveRecord::RecordNotFound if @user.nil?
+
     @manifest = @user.manifests.find_or_create_by(name: params[:name])
 
     @projects = []
