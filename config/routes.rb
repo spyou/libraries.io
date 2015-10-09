@@ -82,6 +82,7 @@ Rails.application.routes.draw do
   get '/github', to: 'github_repositories#index', as: :github
 
   get '/about', to: 'pages#about', as: :about
+  get '/repository-monitoring', to: 'pages#repository_monitoring', as: :repository_monitoring
 
   # legacy
   get '/platforms/:id', to: 'legacy#platform'
