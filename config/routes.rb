@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount Payola::Engine => '/payola', as: :payola
-  require 'sidekiq/web'
-  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-    username == ENV["SIDEKIQ_USERNAME"] && password == ENV["SIDEKIQ_PASSWORD"]
-  end if Rails.env.production?
-  mount Sidekiq::Web => '/sidekiq'
+  # require 'sidekiq/web'
+  # Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+  #   username == ENV["SIDEKIQ_USERNAME"] && password == ENV["SIDEKIQ_PASSWORD"]
+  # end if Rails.env.production?
+  # mount Sidekiq::Web => '/sidekiq'
 
   namespace :api do
     get '/', to: 'docs#index'

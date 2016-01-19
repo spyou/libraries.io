@@ -1,4 +1,4 @@
-class SubscriptionPlan < ActiveRecord::Base
+class SubscriptionPlan < ApplicationRecord
   include Payola::Plan
 
   scope :interval, -> (interval){ where(interval: interval).order('amount ASC') }
